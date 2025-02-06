@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkghr3nurn4wg"]
+
+[ext_resource type="Script" path="res://Scripts/Components/projectile.gd" id="1_gpmwu"]
+[ext_resource type="AudioStream" uid="uid://b4k2be0fw1dpy" path="res://Assets/Sounds/Shoot.wav" id="2_lct7f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_88lir"]
+radius = 19.0263
+
+[node name="Projectile" type="Area2D"]
+process_mode = 1
+scale = Vector2(0.589959, 0.59574)
+script = ExtResource("1_gpmwu")
+
+[node name="Shape" type="Node2D" parent="."]
+scale = Vector2(0.8, 0.8)
+
+[node name="Polygon2D" type="Polygon2D" parent="Shape"]
+position = Vector2(-9.53674e-07, 6.25)
+rotation = 1.56154
+scale = Vector2(0.578934, 0.699947)
+color = Color(0.99999, 0.157242, 0.42858, 1)
+offset = Vector2(-7.20707, 4.38437)
+polygon = PackedVector2Array(32.5333, -3.44896, 28.9108, -17.2331, 21.4921, -26.0521, 7.76585, -28.6793, -9.74497, -27.5914, -21.0292, -23.9457, -26.0753, -18.9922, -13.599, -16.3766, -29.9408, -6.52747, -50, -6.25, -13.8073, 6.12243, -27.5683, 7.24508, -22.6148, 12.2912, -10.1616, 17.4067, 7.32609, 18.8186, 19.8487, 16.4345, 28.6909, 6.5159)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Shape"]
+position = Vector2(1.19209e-07, 10)
+rotation = 1.56154
+scale = Vector2(0.351635, 0.520661)
+color = Color(1, 0.79601, 0.821316, 1)
+offset = Vector2(-7.20707, 4.38437)
+polygon = PackedVector2Array(32.5333, -3.44896, 28.9108, -17.2331, 21.4921, -26.0521, 7.76585, -28.6793, -9.74497, -27.5914, -21.0292, -23.9457, -26.0753, -18.9922, -13.599, -16.3766, -29.9408, -6.52747, -50, -6.25, -13.8073, 6.12243, -27.5683, 7.24508, -22.6148, 12.2912, -10.1616, 17.4067, 7.32609, 18.8186, 19.8487, 16.4345, 28.6909, 6.5159)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_88lir")
+
+[node name="ProjectileSFX" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_lct7f")
+max_distance = 200.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

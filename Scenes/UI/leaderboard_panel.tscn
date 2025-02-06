@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://bq5jwfbb168no"]
+
+[ext_resource type="Script" path="res://Scripts/UI/leaderboard_panel.gd" id="1_gd37d"]
+
+[node name="LeaderboardPanel" type="Panel"]
+size_flags_horizontal = 6
+size_flags_vertical = 4
+script = ExtResource("1_gd37d")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -50.0
+offset_top = -21.5
+offset_right = 50.0
+offset_bottom = 21.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Leaderboard" type="VBoxContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="LeaderboardLabel" type="Label" parent="MarginContainer/Leaderboard"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Leaderboard"
+horizontal_alignment = 1
+
+[node name="VSplitContainer" type="VSplitContainer" parent="MarginContainer/Leaderboard"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/Leaderboard/VSplitContainer"]
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="Entries" type="VBoxContainer" parent="MarginContainer/Leaderboard/VSplitContainer/ScrollContainer"]
+unique_name_in_owner = true
+layout_mode = 2

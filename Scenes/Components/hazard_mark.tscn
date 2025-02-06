@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3 uid="uid://duicxaxakhhte"]
+
+[sub_resource type="GDScript" id="GDScript_wcgwm"]
+script/source = "class_name HazardMark
+extends Node2D
+
+@export var warn_time: float = 3.0
+@export var speed: int = 100
+@onready var polygon_2d: Polygon2D = $Polygon2D
+
+func _ready() -> void:
+	await get_tree().create_timer(warn_time).timeout
+	on_warn_timeout()
+
+func _process(delta: float) -> void:
+	polygon_2d.rotation_degrees += delta * speed
+
+func on_warn_timeout() -> void:
+	queue_free()
+"
+
+[node name="HazardMark" type="Node2D"]
+script = SubResource("GDScript_wcgwm")
+warn_time = 1.0
+speed = 200
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+scale = Vector2(0.538462, 0.538462)
+color = Color(0.827451, 0, 0.588235, 0.980392)
+offset = Vector2(0, -7.42857)
+polygon = PackedVector2Array(-0.857141, -21.8571, -28.7143, -5.14286, -29, 18, -10.1428, 32, 7.42857, 24.1428, 14, 9.71428, 23.2857, 13.4286, 18, 32, 33, 16, 28.8571, -8.85714, 14.8571, -14.8571, -5.53471e-08, -11.1428, -9.28571, 7.42857, -14.8571, 3.71428, -10.1428, -5.14286)

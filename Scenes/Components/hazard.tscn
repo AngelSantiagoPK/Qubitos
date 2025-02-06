@@ -1,0 +1,120 @@
+[gd_scene load_steps=6 format=3 uid="uid://chi0ol7t2cll"]
+
+[ext_resource type="Script" path="res://Scripts/Components/hazard.gd" id="1_j3cey"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tbd8e"]
+radius = 26.0
+
+[sub_resource type="Animation" id="Animation_jpwc0"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1.2, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1.2, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_y0sk8"]
+resource_name = "bomb"
+loop_mode = 2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.9, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 0.9, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_thx5k"]
+_data = {
+"RESET": SubResource("Animation_jpwc0"),
+"bomb": SubResource("Animation_y0sk8")
+}
+
+[node name="Hazard" type="Area2D" groups=["Hazard"]]
+process_mode = 1
+script = ExtResource("1_j3cey")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(3, -21)
+shape = SubResource("CircleShape2D_tbd8e")
+
+[node name="Shadow" type="Polygon2D" parent="."]
+position = Vector2(-1.82927, 0)
+scale = Vector2(1.07317, 1)
+color = Color(0, 0, 0, 0.301961)
+polygon = PackedVector2Array(-16, 1, -9.47728, -6, 3, -8, 17.5455, -6, 23.1364, 0, 14, 6, -7, 6)
+
+[node name="Shape" type="Node2D" parent="."]
+scale = Vector2(1.2, 1.2)
+
+[node name="Polygon2D8" type="Polygon2D" parent="Shape"]
+position = Vector2(1.61111, -6.41414)
+scale = Vector2(0.731852, 0.54303)
+color = Color(0.67451, 0.470588, 1, 1)
+polygon = PackedVector2Array(-19.1667, -5.83333, -22.6974, -45.5729, -12.5, -64.1667, -12.8289, -78.125, -8.88158, -83.3333, -9.86842, -75.5208, -8.79691, -65.2247, -0.833333, -67.5, 7.12008, -65.7957, 8.88158, -75.5208, 6.90789, -83.3333, 11.8421, -78.125, 10.8333, -65, 21.7105, -45.5729, 18.3333, -6.66667, 13.8158, -19.5312, 10, -9.16667, 3.94737, -15.625, -0.986842, 2.60417, -4.93421, -15.625, -10.8333, -10.8333, -15.7895, -19.5312)
+
+[node name="Polygon2D11" type="Polygon2D" parent="Shape"]
+position = Vector2(1.66667, -11.6667)
+scale = Vector2(0.689298, 0.414461)
+color = Color(0.326862, 0.00131358, 0.594272, 1)
+polygon = PackedVector2Array(-19.1667, -5.83333, -22.6974, -45.5729, -12.5, -64.1667, -11.3602, -71.5957, -8.85829, -65.2072, -0.833333, -67.5, 7.46265, -65.7223, 9.29468, -70.1042, 10.8333, -65, 21.7105, -45.5729, 18.3333, -6.66667, 13.8158, -19.5312, 10, -9.16667, 3.94737, -15.625, -0.986842, 2.60417, -4.93421, -15.625, -10.8333, -10.8333, -15.7895, -19.5312)
+
+[node name="Polygon2D9" type="Polygon2D" parent="Shape"]
+position = Vector2(0.833333, 39.1667)
+scale = Vector2(1, 1.5)
+color = Color(0.971868, 0.380545, 0.671683, 1)
+polygon = PackedVector2Array(-10, -45, -2.5, -45, -3.33333, -46.6667, -12.5, -48.3333)
+
+[node name="Polygon2D10" type="Polygon2D" parent="Shape"]
+position = Vector2(10, 39.1667)
+scale = Vector2(-0.15, 1.5)
+color = Color(0.971868, 0.380545, 0.671683, 1)
+polygon = PackedVector2Array(-10, -45, 33.3333, -45, 30, -46.6666, -27.7778, -48.3333)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Shape")
+libraries = {
+"": SubResource("AnimationLibrary_thx5k")
+}
+autoplay = "bomb"
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
