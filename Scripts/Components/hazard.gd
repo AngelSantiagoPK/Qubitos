@@ -7,11 +7,26 @@ var points_loaded: PackedScene = preload("res://Scenes/Components/points.tscn")
 
 const HAZARD_MARK = preload("res://Scenes/Components/hazard_mark.tscn")
 @onready var shape: Node2D = $Shape
+@onready var animation_player: AnimationPlayer = %AnimationPlayer
+@onready var audio_player: AudioStreamPlayer2D = %AudioPlayer
+const SPAWN: AudioStream = preload("res://Assets/Sounds/Spawn.wav")
+const WIND_UP: AudioStream = preload("res://Assets/Sounds/WindUp.wav")
+const PROJECTILE_LAUNCH: AudioStream = preload("res://Assets/Sounds/ProjectileLaunch.wav")
+const KILL_PX = preload("res://Scenes/Particles/kill_px.tscn")
+
+func _ready() -> void:
+	audio_player.stream = SPAWN
+	audio_player.play()
+	await animation_player.animation_finished
+	animation_player.play('idle')
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
 		show_points()
 		GlobalManager.disarmed.emit()
+		var instance = KILL_PX.instantiate()
+		instance.global_position = self.global_position
+		get_parent().call_deferred("add_child", instance)
 		queue_free()
 
 func _on_timer_timeout() -> void:
@@ -23,11 +38,16 @@ func spawn_projectile() -> void:
 	var instance: Projectile = projectile_loaded.instantiate()
 	instance.global_position = self.global_position
 	get_parent().call_deferred("add_child", instance)
+	audio_player.stream = PROJECTILE_LAUNCH
+	audio_player.play()
 
 func show_warning() -> void:
 	var instance = hazard_mark.instantiate()
 	instance.global_position = self.global_position
 	get_parent().call_deferred("add_child", instance)
+	audio_player.stream = WIND_UP
+	audio_player.play()
+	
 
 func show_points()-> void:
 	var instance = points_loaded.instantiate()

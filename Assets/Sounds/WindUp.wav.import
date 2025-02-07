@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://b4k2be0fw1dpy"
-path="res://.godot/imported/Shoot.wav-683b7e537311ed2cc644d784084bb0eb.sample"
+uid="uid://bau4fiy058ny"
+path="res://.godot/imported/WindUp.wav-78873a2b0341c330bf52347f67e1adf2.sample"
 
 [deps]
 
-source_file="res://Assets/Sounds/Shoot.wav"
-dest_files=["res://.godot/imported/Shoot.wav-683b7e537311ed2cc644d784084bb0eb.sample"]
+source_file="res://Assets/Sounds/WindUp.wav"
+dest_files=["res://.godot/imported/WindUp.wav-78873a2b0341c330bf52347f67e1adf2.sample"]
 
 [params]
 

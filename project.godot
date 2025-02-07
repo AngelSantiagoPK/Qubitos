@@ -38,6 +38,10 @@ enabled=PackedStringArray("res://addons/quiver_leaderboards/plugin.cfg", "res://
 
 Player=""
 
+[gui]
+
+theme/custom="res://Assets/Theme/theme.tres"
+
 [input]
 
 pause={
@@ -49,3 +53,7 @@ pause={
 [quiver]
 
 general/auth_token="HpfR4lcE9A0Sfr7DSDtkmRIT9q5rLtUPZLCI0ybi"
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true

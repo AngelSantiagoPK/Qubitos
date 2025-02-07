@@ -6,6 +6,7 @@ var direction: Vector2
 
 @onready var shape: Node2D = $Shape
 @onready var projectile_sfx: AudioStreamPlayer2D = $ProjectileSFX
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 func _ready() -> void:
 	direction = get_random_direction()
@@ -16,7 +17,8 @@ func _physics_process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
-		GameAudioManager.play_sound(GameAudio.DEATH)
+		GameAudioManager.play_sound(GameAudio.EXPLOSION)
+		await GameAudioManager.audio_stream_player_2d.finished
 		await GlobalManager.frame_freeze()
 		GlobalManager.exploded.emit()
 		queue_free()

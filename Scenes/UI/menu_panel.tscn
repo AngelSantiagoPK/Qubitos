@@ -22,7 +22,7 @@ size_flags_vertical = 4
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Time Crystal Rush"
+text = "Qubitos"
 
 [node name="VSplitContainer" type="VSplitContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

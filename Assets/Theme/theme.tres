@@ -1,0 +1,16 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://cndjgflgivudy"]
+
+[ext_resource type="StyleBox" uid="uid://qb23eyvu77x0" path="res://Assets/Theme/style_box_button_hover.tres" id="1_8ceho"]
+[ext_resource type="StyleBox" uid="uid://ht7cukv47rik" path="res://Assets/Theme/style_box_button_focus.tres" id="1_57pxh"]
+[ext_resource type="FontFile" uid="uid://5u7n3sl2wrfg" path="res://Assets/Font/EnchantedLand/Enchanted Land DEMO.otf" id="1_osry1"]
+[ext_resource type="StyleBox" uid="uid://cq6xfdfebygqe" path="res://Assets/Theme/style_box_button_disabled.tres" id="1_tmitw"]
+[ext_resource type="StyleBox" uid="uid://djxwme10f3a4g" path="res://Assets/Theme/style_box_button_normal.tres" id="2_bxmep"]
+
+[resource]
+default_font = ExtResource("1_osry1")
+default_font_size = 32
+Button/font_sizes/font_size = 16
+Button/styles/disabled = ExtResource("1_tmitw")
+Button/styles/focus = ExtResource("1_57pxh")
+Button/styles/hover = ExtResource("1_8ceho")
+Button/styles/normal = ExtResource("2_bxmep")
