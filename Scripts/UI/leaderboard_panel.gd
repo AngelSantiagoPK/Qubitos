@@ -7,10 +7,9 @@ extends Panel
 func _ready() -> void:
 	GlobalManager.load_leaderboard.connect(on_game_over)
 	GlobalManager.accept_entry.connect(on_game_over)
-	GlobalManager.load_leaderboard.connect(show_entries)
 
 func on_game_over() -> void:
-	show_entries()
+	await show_entries()
 
 func show_entries() -> void:
 	clear_entries()
@@ -18,11 +17,12 @@ func show_entries() -> void:
 
 	for i in lb.scores.size():
 		var label = Label.new()
+		var player_rank: String = str(lb.scores[i].rank)
 		var player_name: String = str(lb.scores[i].name)
 		var player_score: String = str(lb.scores[i].score)
-		label.text = player_name + " ~ " + player_score
+		label.text = player_rank + ". " + player_name + " ~ " + player_score
 		label.add_to_group("ScoreEntry")
-		label.add_theme_font_size_override("font_size", 10)
+		label.add_theme_font_size_override("font_size", 12)
 		entries.call_deferred("add_child", label)
 
 func clear_entries() -> void:

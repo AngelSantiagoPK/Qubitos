@@ -39,7 +39,6 @@ layout_mode = 2
 custom_minimum_size = Vector2(0, 160)
 layout_mode = 2
 horizontal_scroll_mode = 0
-vertical_scroll_mode = 2
 
 [node name="Entries" type="VBoxContainer" parent="MarginContainer/Leaderboard/VSplitContainer/ScrollContainer"]
 unique_name_in_owner = true

@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://md5ot1047scy"]
+
+[ext_resource type="Material" uid="uid://b2et1eojn7rxk" path="res://Scenes/Particles/collect_px.tres" id="1_pogym"]
+
+[sub_resource type="GDScript" id="GDScript_fc845"]
+script/source = "extends GPUParticles2D
+
+var used: bool = false
+
+func _ready() -> void:
+	self.restart()
+	self.emitting = true
+	used = true
+	
+func _physics_process(_delta: float) -> void:
+	if not self.emitting and used:
+		queue_free()
+		pass
+"
+
+[node name="CollectionPX" type="GPUParticles2D"]
+z_index = 1
+emitting = false
+amount = 30
+sub_emitter = NodePath(".")
+process_material = ExtResource("1_pogym")
+lifetime = 0.75
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+script = SubResource("GDScript_fc845")

@@ -12,16 +12,16 @@ signal disarmed
 
 #Pause Menu Signals
 signal play_game
+signal restart_game
 signal options
-signal leave_game
+signal go_to_menu
+signal quit_game
 signal pause
 signal unpause
-
 
 #Game Signal
 signal update_ui
 signal time_up
-signal reset
 signal game_over
 
 # Leaderboard Signal

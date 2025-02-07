@@ -8,6 +8,7 @@ var player_offset: Vector2 = Vector2(32, 50)
 var move_speed: int = 1
 var move_time: float = 0.15
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var dust_px: GPUParticles2D = $DustPX
 
 func _ready() -> void:
 	self.position = Vector2(0, 0)
@@ -46,3 +47,5 @@ func _physics_process(_delta: float) -> void:
 
 func play_sfx() -> void:
 	GameAudioManager.play_sound(GameAudio.STEP)
+	dust_px.restart()
+	dust_px.emitting = true

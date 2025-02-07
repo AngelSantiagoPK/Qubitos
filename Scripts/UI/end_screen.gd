@@ -10,6 +10,7 @@ func on_enter_alias() -> void:
 	player_name = line_edit.text
 	await submit_new_score()
 	GlobalManager.accept_entry.emit()
+	get_tree().reload_current_scene()
 
 func _on_line_edit_text_submitted(_new_text: String) -> void:
 	on_enter_alias()
