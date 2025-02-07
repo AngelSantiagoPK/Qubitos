@@ -17,10 +17,6 @@ func _ready() -> void:
 	GlobalManager.ask_for_entry.connect(on_ask_for_entry)
 	GlobalManager.accept_entry.connect(on_accept_entry)
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("pause"):
-		GlobalManager.pause.emit()
-
 func on_pause() -> void:
 	pause_menu_panel.show()
 	continue_button.grab_focus()

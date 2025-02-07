@@ -7,6 +7,10 @@ func _ready() -> void:
 	GlobalManager.exploded.connect(on_game_over)
 	GlobalManager.time_up.connect(on_game_over)
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("pause"):
+		GlobalManager.pause.emit()
+
 func on_pause() -> void:
 	get_tree().paused = true
 

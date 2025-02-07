@@ -34,15 +34,9 @@ var score_multiplier: int = 1
 var score: int = 0
 var lives: int = 1
 
-var LEADERBOARD: Dictionary = {}
-
 func _ready() -> void:
-	SilentWolf.configure({
-		"api_key": "FAMdYMZOp6xiQECqZhun6JyNffuMDkf3AaZfsYzi",
-		"game_id": "Qubitos",
-		"game_version": "1.0.0",
-		"log_level": 1
-	})
+	#TODO: initialize online database connection to leaderboards
+	pass
 
 func get_score() -> int:
 	return score
@@ -71,13 +65,3 @@ func reset_game() -> void:
 	score_multiplier = 1
 	score = 0
 	lives = 1
-
-# Leaderboard Functions
-func get_online_leaderboard() -> void:
-	#LEADERBOARD = await SilentWolf.Scores.get_scores(10).sw_get_scores_complete
-	var sw_result: Dictionary = await SilentWolf.Scores.get_scores(10).sw_get_scores_complete
-	LEADERBOARD = sw_result
-	
-func add_entry(alias: String) -> void:
-	SilentWolf.Scores.save_score(alias, get_score(), "main")
-	await get_online_leaderboard()
