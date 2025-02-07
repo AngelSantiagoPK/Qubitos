@@ -5,7 +5,6 @@ var level: PackedScene = preload("res://Scenes/Levels/Level_01.tscn")
 @onready var ui: UI = %UI
 
 func _ready() -> void:
-	GlobalManager.get_online_leaderboard()
 	GlobalManager.load_leaderboard.emit()
 	GlobalManager.play_game.connect(on_play)
 	GlobalManager.game_over.connect(on_end_play)
