@@ -106,7 +106,7 @@ motion_mode = 1
 script = ExtResource("1_u1ui1")
 
 [node name="Shadow" type="Polygon2D" parent="."]
-color = Color(0, 0, 0, 0.517647)
+color = Color(0, 0, 0, 0.388235)
 polygon = PackedVector2Array(-68.277, -66.2684, 75.8633, -66.2684, 166.899, -18.9338, 91.036, 28.4008, -53.1043, 28.4008, -144.14, 0)
 
 [node name="Visual" type="Node2D" parent="."]
@@ -115,34 +115,46 @@ polygon = PackedVector2Array(-68.277, -66.2684, 75.8633, -66.2684, 166.899, -18.
 position = Vector2(0, 785.754)
 scale = Vector2(1.87616, 2.30654)
 color = Color(0.287266, 0, 0.0607924, 1)
-polygon = PackedVector2Array(4.04354, -472.003, -38, -424, -63, -376, 4.04354, -402.229, 71, -380, 43, -427)
+polygon = PackedVector2Array(4.04354, -472.003, -38, -424, -63, -376, -20.2177, -385.812, 4.04354, -369.394, 36.3919, -385.812, 68.7402, -369.394, 43, -427)
 
 [node name="Polygon2D3" type="Polygon2D" parent="Visual"]
 color = Color(0.184314, 0.611765, 1, 1)
-polygon = PackedVector2Array(-45.518, -274.541, 4, -310, 60.6907, -274.541, 37.9317, -189.338, 98.6223, -28.4008, 22.759, -132.537, -7.58633, -132.537, -68.277, -28.4008, -22.759, -189.338)
+polygon = PackedVector2Array(-37.9317, -274.541, 4, -310, 53.1043, -274.541, 37.9317, -189.338, 68.277, -104.136, 68.277, -28.4008, 45.518, -94.6692, 15.1727, -142.004, 0, -142.004, -22.759, -94.6692, -45.518, -28.4008, -45.518, -104.136, -22.759, -189.338)
 
 [node name="Polygon2D8" type="Polygon2D" parent="Visual"]
 position = Vector2(2.38419e-07, 0)
 scale = Vector2(0.928571, 1)
 color = Color(0, 0.3712, 0.654262, 1)
-polygon = PackedVector2Array(-45.518, -274.541, 4, -310, 60.6907, -274.541, 45.518, -198.805, 7.58632, -265.074, -30.3453, -208.272)
+polygon = PackedVector2Array(-49.0194, -274.541, 4, -310, 65.3592, -274.541, 49.0194, -227.206, 16.3398, -255.607, 8.1699, -284.008, -2.56759e-07, -255.607, -32.6796, -227.206)
 
 [node name="Polygon2D2" type="Polygon2D" parent="Visual"]
 position = Vector2(0, 18.9338)
 color = Color(0.743857, 0, 0.214193, 1)
-polygon = PackedVector2Array(-72, -312, -121.381, -94.6692, 7.58633, -293.474, 136.554, -75.7353, 91.036, -321.875, 44, -332, -25, -334)
+polygon = PackedVector2Array(-68.277, -302.941, -91.036, -160.938, -121.381, -94.6692, -75.8633, -142.004, -30.3453, -274.541, 0, -284.007, 7.58633, -312.408, 15.1727, -284.007, 45.518, -274.541, 91.036, -132.537, 136.554, -75.7353, 106.209, -170.404, 83.4497, -312.408, 44, -332, -25, -334)
 
 [node name="Polygon2D" type="Polygon2D" parent="Visual"]
 position = Vector2(7.58633, 28.4008)
 scale = Vector2(0.753221, 1)
 color = Color(0.745098, 0, 0.215686, 1)
-polygon = PackedVector2Array(0, -473.346, -38, -424, -63, -376, -35, -331, -1, -320, 47, -332, 71, -380, 43, -427)
+polygon = PackedVector2Array(3.8147e-06, -444.945, -20.1437, -416.544, -63, -376, -35, -331, -1, -320, 47, -332, 71, -380, 20.1437, -426.011)
 
 [node name="Polygon2D6" type="Polygon2D" parent="Visual"]
 position = Vector2(7.58633, -132.537)
 scale = Vector2(0.378027, 0.547232)
 color = Color(0.287266, 0, 0.0607924, 1)
 polygon = PackedVector2Array(0, -473.346, -38, -424, -63, -376, -35, -331, -1, -320, 47, -332, 71, -380, 43, -427)
+
+[node name="Polygon2D9" type="Polygon2D" parent="Visual"]
+position = Vector2(7.58633, -160.938)
+scale = Vector2(0.317118, 0.45906)
+color = Color(0.184314, 0.611765, 0.976471, 1)
+polygon = PackedVector2Array(0, -433.071, -38, -424, -63, -376, -35, -331, -1, -320, 47, -332, 71, -380, 43, -427)
+
+[node name="Polygon2D4" type="Polygon2D" parent="Visual"]
+
+[node name="Polygon2D5" type="Polygon2D" parent="Visual"]
+scale = Vector2(1, 1)
+polygon = PackedVector2Array(15.1727, -331.342, 22.759, -340.809, 22.759, -331.342)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -163,3 +175,7 @@ lifetime = 0.5
 one_shot = true
 explosiveness = 1.0
 randomness = 1.0
+
+[node name="Polygon2D2" type="Polygon2D" parent="."]
+position = Vector2(-22.759, 0)
+polygon = PackedVector2Array(15.1727, -340.809, 22.759, -331.342, 15.1727, -331.342)

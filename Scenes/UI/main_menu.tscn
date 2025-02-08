@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bmlekmblh5hw2"]
 
-[ext_resource type="Texture2D" uid="uid://cbw4sk31mrmjn" path="res://Assets/Textures/space_background_pack/Assets/Blue Version/blue-preview.png" id="1_81nx3"]
+[ext_resource type="Texture2D" uid="uid://captembm3d5ns" path="res://Assets/Textures/RealisticSpaceBackground/Nebula Blue.png" id="1_qojr1"]
 [ext_resource type="PackedScene" uid="uid://bsjcx25q0wtyk" path="res://Scenes/UI/menu_panel.tscn" id="2_fendh"]
 [ext_resource type="PackedScene" uid="uid://bq5jwfbb168no" path="res://Scenes/UI/leaderboard_panel.tscn" id="3_ewia8"]
 
@@ -19,7 +19,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_81nx3")
+texture = ExtResource("1_qojr1")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
