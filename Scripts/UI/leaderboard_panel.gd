@@ -13,7 +13,7 @@ func on_game_over() -> void:
 
 func show_entries() -> void:
 	clear_entries()
-	var lb = await Leaderboards.get_scores(LeaderboardsManager.leaderboard_id, 0, 10)
+	var lb = await Leaderboards.get_scores(LeaderboardsManager.leaderboard_id, 0, 32)
 
 	for i in lb.scores.size():
 		var label = Label.new()
@@ -22,7 +22,7 @@ func show_entries() -> void:
 		var player_score: String = str(lb.scores[i].score)
 		label.text = player_rank + ". " + player_name + " ~ " + player_score
 		label.add_to_group("ScoreEntry")
-		label.add_theme_font_size_override("font_size", 12)
+		label.add_theme_font_size_override("font_size", 32)
 		entries.call_deferred("add_child", label)
 
 func clear_entries() -> void:

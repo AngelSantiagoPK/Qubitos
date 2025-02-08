@@ -7,9 +7,11 @@ var direction: Vector2
 @onready var shape: Node2D = $Shape
 @onready var projectile_sfx: AudioStreamPlayer2D = $ProjectileSFX
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var fireball_sprite: AnimatedSprite2D = %"Fireball Sprite"
 
 func _ready() -> void:
 	direction = get_random_direction()
+	update_sprite_direction()
 	projectile_sfx.play()
 
 func _physics_process(delta: float) -> void:
@@ -32,3 +34,20 @@ func get_random_direction() -> Vector2:
 		2: dir = Vector2.UP
 		3: dir = Vector2.DOWN
 	return dir
+
+func update_sprite_direction() -> void:
+	var change: float = 0
+	match direction:
+		Vector2.LEFT:
+			change = 180
+		Vector2.RIGHT:
+			change = 0
+		Vector2.UP:
+			change = -90
+		Vector2.DOWN:
+			change = 90
+	fireball_sprite.rotate(deg_to_rad(change))
+
+
+func _on_timer_timeout() -> void:
+	queue_free()

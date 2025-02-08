@@ -29,6 +29,7 @@ size_flags_horizontal = 4
 [node name="LeaderboardLabel" type="Label" parent="MarginContainer/Leaderboard"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 100
 text = "Leaderboard"
 horizontal_alignment = 1
 
